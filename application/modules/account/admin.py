@@ -1,3 +1,10 @@
 from django.contrib import admin
+from core.utils import get_field_list
+from modules.account.models import Activation
 
-# Register your models here.
+
+class ProductAdmin(admin.ModelAdmin):
+    list_display = get_field_list(Activation)
+
+
+admin.site.register(Activation, ProductAdmin)
