@@ -1,6 +1,8 @@
 from os import getenv, path
 from pathlib import Path
 
+from django.utils.translation import gettext_lazy as _
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 CONTENT_DIR = path.join(BASE_DIR, 'content')
@@ -28,6 +30,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'modules.dashboard',
     'modules.account',
     'django_bootstrap5',
 ]
@@ -69,6 +72,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
+EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+EMAIL_FILE_PATH = path.join(CONTENT_DIR, 'tmp/emails')
+EMAIL_HOST_USER = 'test@example.com'
+DEFAULT_FROM_EMAIL = 'test@example.com'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
@@ -99,11 +106,44 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+ENABLE_USER_ACTIVATION = False
+DISABLE_USERNAME = False
+LOGIN_VIA_EMAIL = True
+LOGIN_VIA_EMAIL_OR_USERNAME = False
+LOGIN_URL = 'account:log_in'
+USE_REMEMBER_ME = True
+
+LOGIN_REDIRECT_URL = 'index'
+LOGOUT_REDIRECT_URL = 'account:log_in'
+
+RESTORE_PASSWORD_VIA_EMAIL_OR_USERNAME = False
+ENABLE_ACTIVATION_AFTER_EMAIL_CHANGE = False
+
+MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
+
+SIGN_UP_FIELDS = [
+    'username',
+    'first_name',
+    'last_name',
+    'email',
+    'password1',
+    'password2']
+
+if DISABLE_USERNAME:
+    SIGN_UP_FIELDS = [
+        'first_name',
+        'last_name',
+        'email',
+        'password1',
+        'password2']
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
+LANGUAGES = [
+    ('en', _('English'))
+]
 
 TIME_ZONE = 'UTC'
 
