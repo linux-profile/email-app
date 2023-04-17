@@ -23,7 +23,7 @@ from modules.account.models import Activation
 
 
 class ChangeEmailView(LoginRequiredMixin, FormView):
-    template_name = 'account/profile/change_email.html'
+    template_name = 'account/management/change_email.html'
     form_class = ChangeEmailForm
 
     def get_form_kwargs(self):
@@ -81,7 +81,7 @@ class ChangeEmailActivateView(View):
 
 
 class ChangeProfileView(LoginRequiredMixin, FormView):
-    template_name = 'account/profile/change_profile.html'
+    template_name = 'account/management/change_profile.html'
     form_class = ChangeProfileForm
 
     def get_initial(self):
@@ -103,7 +103,7 @@ class ChangeProfileView(LoginRequiredMixin, FormView):
     
 
 class ChangePasswordView(BasePasswordChangeView):
-    template_name = 'account/profile/change_password.html'
+    template_name = 'account/management/change_password.html'
 
     def form_valid(self, form):
         # Change the password

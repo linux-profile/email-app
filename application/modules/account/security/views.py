@@ -25,7 +25,7 @@ from core.views import GuestOnlyView
 
 
 class RestorePasswordView(GuestOnlyView, FormView):
-    template_name = 'account/restore_password.html'
+    template_name = 'account/security/restore_password.html'
 
     @staticmethod
     def get_form_class(**kwargs):
@@ -48,11 +48,11 @@ class RestorePasswordView(GuestOnlyView, FormView):
 
 
 class RestorePasswordDoneView(BasePasswordResetDoneView):
-    template_name = 'account/restore_password_done.html'
+    template_name = 'account/security/restore_password_done.html'
 
 
 class RestorePasswordConfirmView(BasePasswordResetConfirmView):
-    template_name = 'account/restore_password_confirm.html'
+    template_name = 'account/security/restore_password_confirm.html'
 
     def form_valid(self, form):
         # Change the password
@@ -64,7 +64,7 @@ class RestorePasswordConfirmView(BasePasswordResetConfirmView):
 
 
 class RemindUsernameView(GuestOnlyView, FormView):
-    template_name = 'account/remind_username.html'
+    template_name = 'account/security/remind_username.html'
     form_class = RemindUsernameForm
 
     def form_valid(self, form):

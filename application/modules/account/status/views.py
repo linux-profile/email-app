@@ -18,7 +18,7 @@ from core.views import GuestOnlyView
 
 
 class ResendActivationCodeView(GuestOnlyView, FormView):
-    template_name = 'account/resend_activation_code.html'
+    template_name = 'account/status/resend_activation_code.html'
 
     @staticmethod
     def get_form_class(**kwargs):
