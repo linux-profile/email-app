@@ -12,13 +12,8 @@ from django.utils.translation import gettext_lazy as _
 from django.views.generic import View, FormView
 from django.conf import settings
 
-from modules.account.utils import (
-    send_activation_change_email
-)
-from modules.account.forms import (
-    ChangeProfileForm,
-    ChangeEmailForm,
-)
+from modules.account.utils import send_activation_change_email
+from modules.account.forms import ChangeProfileForm, ChangeEmailForm
 from modules.account.models import Activation
 
 

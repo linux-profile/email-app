@@ -6,9 +6,7 @@ from django.utils.translation import gettext_lazy as _
 from django.views.generic import View, FormView
 from django.conf import settings
 
-from modules.account.utils import (
-    send_activation_email,
-)
+from modules.account.utils import send_activation_email
 from modules.account.forms import (
     ResendActivationCodeForm,
     ResendActivationCodeViaEmailForm,

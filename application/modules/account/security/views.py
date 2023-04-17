@@ -18,8 +18,8 @@ from modules.account.utils import (
 )
 from modules.account.security.forms import (
     RestorePasswordForm,
-    RestorePasswordViaEmailOrUsernameForm,
     RemindUsernameForm,
+    RestorePasswordViaEmailOrUsernameForm
 )
 from core.views import GuestOnlyView
 
