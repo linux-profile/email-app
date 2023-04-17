@@ -1,0 +1,23 @@
+{% load i18n %}
+
+<!doctype html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{{ subject }}</title>
+</head>
+
+    <body>
+
+        <p>{% trans 'To activate your profile, please follow this link:' %}</p>
+
+        <p>
+            <a href="{{ uri }}">{{ uri }}</a>
+        </p>
+
+    </body>
+
+</html>
